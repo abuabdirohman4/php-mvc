@@ -12,6 +12,9 @@ class App {
         $url = $this->parseURL();
         // var_dump($url); // cek isi variable url yang mrpkan keluaran dari method parseURL
 
+        // if ($url == null) $url = [$this->controller];
+        if (is_null($url)) $url = [$this->controller];
+
         // Controller
         if (file_exists('../controllers/' . $url[0]) . '.php') { // Cek apakah controller nya ada?
             $this->controller = $url[0];
