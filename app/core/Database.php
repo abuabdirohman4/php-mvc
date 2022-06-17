@@ -50,15 +50,6 @@ class Database {
             }
         }
 
-        // echo "isi param ";
-        // var_dump($param);
-        // echo "<br>";
-        // echo "isi value ";
-        // var_dump($value);
-        // echo "<br>";
-        // echo "isi type ";
-        // var_dump($type);
-
         $this->stmt->bindValue($param, $value, $type);
     }
 
@@ -76,9 +67,6 @@ class Database {
     public function single()
     {
         $this->execute();
-        // echo "<br> single ";
-        // var_dump($this->stmt->fetch(PDO::FETCH_ASSOC));
-        // echo "<br>";
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
