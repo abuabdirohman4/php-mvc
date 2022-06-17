@@ -49,4 +49,13 @@ class Mahasiswa_model {
         $this->db->query('SELECT * FROM '. $this->table );
         return $this->db->resultSet();
     }
+
+    public function getMahasiswaById($id) {
+        $this->db->query('SELECT * FROM '. $this->table .' WHERE id=:id ');
+        echo "ini fungsi getMahasiswaById, isi id ";
+        var_dump($id);
+        echo "<br>";
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
 }

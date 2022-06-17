@@ -7,13 +7,12 @@ class Database {
     private $db_name = DB_NAME;
 
     // PHP Data Object
-    // private $dbh, $stmt;
+    private $dbh, $stmt;
     
     public function __construct()
     {
         // data source name
         $dsn = 'mysql:host='.$this->host.';dbname='.$this->db_name;
-        // $dsn = 'mysql:host=localhost;dbname=fnd_34_php_mvc';  
 
         $option = [
             PDO::ATTR_PERSISTENT => true,
@@ -41,7 +40,7 @@ class Database {
                     $type = PDO::PARAM_INT;
                     break;
                 case is_bool($value) :
-                    $type  = PDO::PARAM_BOl;
+                    $type  = PDO::PARAM_BOOL;
                     break;
                 case is_null($value) :
                     $type = PDO::PARAM_NULL;
@@ -50,6 +49,17 @@ class Database {
                     $type = PDO::PARAM_STR;
             }
         }
+
+        // echo "isi param ";
+        // var_dump($param);
+        // echo "<br>";
+        // echo "isi value ";
+        // var_dump($value);
+        // echo "<br>";
+        // echo "isi type ";
+        // var_dump($type);
+
+        $this->stmt->bindValue($param, $value, $type);
     }
 
     public function execute()
@@ -66,6 +76,9 @@ class Database {
     public function single()
     {
         $this->execute();
+        // echo "<br> single ";
+        // var_dump($this->stmt->fetch(PDO::FETCH_ASSOC));
+        // echo "<br>";
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
