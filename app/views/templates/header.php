@@ -9,6 +9,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/bootstrap.min.css" >
     
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/style.css" >
+
     <title>Halaman <?= $data['judul'] ?></title>
 </head>
 <body>

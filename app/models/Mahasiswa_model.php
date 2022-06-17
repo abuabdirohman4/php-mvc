@@ -16,26 +16,37 @@ class Mahasiswa_model {
         //     ]
     // ];
 
-    // PDO (PHP Data Object)
-    private $dbh; //database handler
-    private $stmt;
-    
+    // // PDO (PHP Data Object)
+        // private $dbh; //database handler
+        // private $stmt;
+        
+        // public function __construct()
+        // {
+        //     // data source name
+        //     $dsn = 'mysql:host=localhost;dbname=fnd_34_php_mvc';
+
+        //     try {
+        //         $this->dbh = new PDO($dsn, 'root', 'root');
+        //     } 
+        //     catch(PDOException $e) {
+        //         die($e->getMessage());
+        //     }
+        // }
+
+    private $table = 'mahasiswa';
+    private $db;
+
     public function __construct()
     {
-        // data source name
-        $dsn = 'mysql:host=localhost;dbname=fnd-34-php-mvc';
-
-        try {
-            $this->dbh = new PDO($dsn, 'root', 'root');
-        } 
-        catch(PDOException $e) {
-            die($e->getMessage());
-        }
+        $this->db = new Database;
     }
 
     public function getAllMahasiswa() {
-        $this->stmt = $this->dbh->prepare('SELECT * FROM mahasiswa');
-        $this->stmt->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        // $this->stmt = $this->dbh->prepare('SELECT * FROM mahasiswa');
+        // $this->stmt->execute();
+        // return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->db->query('SELECT * FROM '. $this->table );
+        return $this->db->resultSet();
     }
 }
