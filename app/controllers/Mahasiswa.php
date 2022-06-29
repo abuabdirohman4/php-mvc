@@ -26,11 +26,27 @@ class Mahasiswa extends Controller {
         // var_dump($result);
         if ( $this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0) {
             Flasher::setFlash('berhasil', 'ditambahkan', 'success');
-            var_dump('data');
+            // var_dump('data');
             header('Location: '. BASEURL . '/mahasiswa');
             exit;
         } else {
             Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('Location: '. BASEURL . '/mahasiswa');
+            exit;
+        }
+    }
+
+    public function hapus($id)
+    {
+        if ( $this->model('Mahasiswa_model')->hapusDataMahasiswa($id) > 0) {
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            var_dump('ini berhasil');
+            // var_dump('data');
+            header('Location: '. BASEURL . '/mahasiswa');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            var_dump('ini gagal');
             header('Location: '. BASEURL . '/mahasiswa');
             exit;
         }

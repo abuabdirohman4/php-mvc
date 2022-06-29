@@ -12,6 +12,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/style.css" >
 
+    <!-- SweetAlert -->
+    <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
+
     <title>Halaman <?= $data['judul'] ?></title>
 </head>
 <body>
