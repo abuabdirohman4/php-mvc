@@ -10,7 +10,7 @@
         <div class="col-6">
             <h3>Daftar Mahasiswa</h3>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary mb-4 mt-3" data-bs-toggle="modal" data-bs-target="#formModal">
+            <button type="button" class="btn btn-primary mb-4 mt-3 buttonTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
             Tambah Data Mahasiswa
             </button>
 
@@ -18,8 +18,12 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <?= $mhs['nama']?>
-                        <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>" class="badge bg-danger text-decoration-none float-end ms-2" onclick="return confirm('Yakin?');">
+                        <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>" class="badge bg-danger text-decoration-none float-end" onclick="return confirm('Yakin?');">
                             Hapus
+                        </a>
+                        <a href="<?= BASEURL ?>/mahasiswa/ubah/<?= $mhs['id'] ?>" class="badge bg-success text-decoration-none float-end mx-2 tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" 
+                        data-id="<?= $mhs['id'] ?>">
+                            Ubah
                         </a>
                         <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>" class="badge bg-secondary text-decoration-none float-end">
                             Details
@@ -36,11 +40,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="tambahData">Tambah Data</h5>
+        <h5 class="modal-title" id="tambahData">Tambah Data Mahasiswa</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="<?= BASEURL ?>/mahasiswa/tambah" method="post">
         <div class="modal-body">
+          <input type="hidden" name="id" id="id">
           <div class="mb-3">
               <label for="nama" class="form-label">Nama</label>
               <input type="text" class="form-control" id="nama" name="nama">
