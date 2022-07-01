@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-2">
 
     <div class="row">
       <div class="col-6">
@@ -7,13 +7,28 @@
     </div>
 
     <div class="row">
+      <div class="col-6">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary mb-4 mt-3 buttonTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
+            Tambah Data Mahasiswa
+          </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+          <form action="<?= BASEURL; ?>/mahasiswa/cari" method="post">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Cari Mahasiswa" name="keyword" id="keyword" autocomplete="off">
+              <button class="btn btn-outline-primary" type="submit" id="buttonCari">Cari</button>
+            </div>
+          </form>  
+      </div>
+    </div>
+
+    <div class="row">
         <div class="col-6">
             <h3>Daftar Mahasiswa</h3>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary mb-4 mt-3 buttonTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
-            Tambah Data Mahasiswa
-            </button>
-
             <?php foreach($data['mhs'] as $mhs) : ?>
                 <ul class="list-group">
                     <li class="list-group-item">

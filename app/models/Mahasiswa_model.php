@@ -41,7 +41,8 @@ class Mahasiswa_model {
         $this->db = new Database;
     }
 
-    public function getAllMahasiswa() {
+    public function getAllMahasiswa() 
+    {
         // $this->stmt = $this->dbh->prepare('SELECT * FROM mahasiswa');
         // $this->stmt->execute();
         // return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -50,7 +51,8 @@ class Mahasiswa_model {
         return $this->db->resultSet();
     }
 
-    public function getMahasiswaById($id) {
+    public function getMahasiswaById($id) 
+    {
         $this->db->query('SELECT * FROM '. $this->table .' WHERE id=:id ');
         $this->db->bind('id', $id);
         return $this->db->single();
@@ -97,5 +99,16 @@ class Mahasiswa_model {
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+    public function cariDataMahasiswa()
+    {
+        $keyword = $_POST['keyword'];
+        // $query = "SELECT * FROM mahasiswa WHERE nama LIKE %keyword%"
+        $query = "SELECT * FROM mahasiswa WHERE nama LIKE :keyword";
+        $this->db->query($query);
+        $this->db->bind('keyword', "%$keyword%");
+
+        return $this->db->resultSet();
     }
 }
