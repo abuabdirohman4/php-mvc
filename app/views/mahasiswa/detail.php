@@ -8,7 +8,7 @@
                     <h5 class="card-subtitle my-2 text-muted"><?= $data['mhs']['nim']; ?></h5>
                     <p class="card-text"><?= $data['mhs']['email']; ?></p>
                     <p class="card-text"><?= $data['mhs']['jurusan']; ?></p>
-                    <a href="<?= BASEURL ?>/mahasiswa" class="card-link">Kembali</a>
+                    <a href="<?= BASEURL ?>?url=mahasiswa" class="card-link">Kembali</a>
                 </div>
             </div>
         </div>

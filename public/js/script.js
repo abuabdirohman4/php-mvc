@@ -11,7 +11,7 @@ $(function() {
         
         $('#tambahData').html('Ubah Data Mahasiswa');
         $('.modal-footer button[type=submit]').html('Ubah Data');
-        $('.modal-content form').attr('action', 'http://localhost:8000/public/mahasiswa/ubah')
+        $('.modal-content form').attr('action', 'http://localhost:8000/public?url=mahasiswa/ubah')
         // let modal = $('.modal-content form');
         // console.log("hallo", modal);
 
@@ -20,7 +20,7 @@ $(function() {
         // console.log(id);
 
         $.ajax({
-            url: 'http://localhost:8000/public/mahasiswa/getUbah',
+            url: 'http://localhost:8000/public?url=mahasiswa/getUbah',
             data: {id : id},
             method: 'post',
             dataType: 'json',

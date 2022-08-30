@@ -27,11 +27,11 @@ class Mahasiswa extends Controller {
         if ( $this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0) {
             Flasher::setFlash('berhasil', 'ditambahkan', 'success');
             // var_dump('data');
-            header('Location: '. BASEURL . '/mahasiswa');
+            header('Location: '. BASEURL . '?url=mahasiswa');
             exit;
         } else {
             Flasher::setFlash('gagal', 'ditambahkan', 'danger');
-            header('Location: '. BASEURL . '/mahasiswa');
+            header('Location: '. BASEURL . '?url=mahasiswa');
             exit;
         }
     }
@@ -42,12 +42,12 @@ class Mahasiswa extends Controller {
             Flasher::setFlash('berhasil', 'dihapus', 'success');
             var_dump('ini berhasil');
             // var_dump('data');
-            header('Location: '. BASEURL . '/mahasiswa');
+            header('Location: '. BASEURL . '?url=mahasiswa');
             exit;
         } else {
             Flasher::setFlash('gagal', 'dihapus', 'danger');
             var_dump('ini gagal');
-            header('Location: '. BASEURL . '/mahasiswa');
+            header('Location: '. BASEURL . '?url=mahasiswa');
             exit;
         }
     }
@@ -64,11 +64,11 @@ class Mahasiswa extends Controller {
         if ( $this->model('Mahasiswa_model')->ubahDataMahasiswa($_POST) > 0) {
             Flasher::setFlash('berhasil', 'diubah', 'success');
             // var_dump('data');
-            header('Location: '. BASEURL . '/mahasiswa');
+            header('Location: '. BASEURL . '?url=mahasiswa');
             exit;
         } else {
             Flasher::setFlash('gagal', 'diubah', 'danger');
-            header('Location: '. BASEURL . '/mahasiswa');
+            header('Location: '. BASEURL . '?url=mahasiswa');
             exit;
         }
     }

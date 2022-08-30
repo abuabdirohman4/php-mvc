@@ -17,7 +17,7 @@
 
     <div class="row">
       <div class="col-6">
-          <form action="<?= BASEURL; ?>/mahasiswa/cari" method="post">
+          <form action="<?= BASEURL; ?>?url=mahasiswa/cari" method="post">
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="Cari Mahasiswa" name="keyword" id="keyword" autocomplete="off">
               <button class="btn btn-outline-primary" type="submit" id="buttonCari">Cari</button>
@@ -33,14 +33,14 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <?= $mhs['nama']?>
-                        <a href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>" class="badge bg-danger text-decoration-none float-end" onclick="return confirm('Yakin?');">
+                        <a href="<?= BASEURL ?>?url=mahasiswa/hapus/<?= $mhs['id'] ?>" class="badge bg-danger text-decoration-none float-end" onclick="return confirm('Yakin?');">
                             Hapus
                         </a>
-                        <a href="<?= BASEURL ?>/mahasiswa/ubah/<?= $mhs['id'] ?>" class="badge bg-success text-decoration-none float-end mx-2 tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" 
+                        <a href="<?= BASEURL ?>?url=mahasiswa/ubah/<?= $mhs['id'] ?>" class="badge bg-success text-decoration-none float-end mx-2 tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" 
                         data-id="<?= $mhs['id'] ?>">
                             Ubah
                         </a>
-                        <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>" class="badge bg-secondary text-decoration-none float-end">
+                        <a href="<?= BASEURL ?>?url=mahasiswa/detail/<?= $mhs['id'] ?>" class="badge bg-secondary text-decoration-none float-end">
                             Details
                         </a>
                     </li>
@@ -58,7 +58,7 @@
         <h5 class="modal-title" id="tambahData">Tambah Data Mahasiswa</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="<?= BASEURL ?>/mahasiswa/tambah" method="post">
+      <form action="<?= BASEURL ?>?url=mahasiswa/tambah" method="post">
         <div class="modal-body">
           <input type="hidden" name="id" id="id">
           <div class="mb-3">

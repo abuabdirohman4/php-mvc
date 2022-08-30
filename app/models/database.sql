@@ -34,3 +34,5 @@ DELETE FROM mahasiswa WHERE id = 3;
 DROP TABLE mahasiswa;
 
 DROP DATABASE php_basic
+
+ALTER TABLE mahasiswa RENAME COLUMN nrp TO nim;
